@@ -35,7 +35,6 @@ _.extend(View.prototype, environmentSpecific.ViewMixin);
  *     (Barefoot.Router) Router
  */
 function start(Router) {
-	console.log(environmentSpecific);
 	environmentSpecific.startup(Router);
 }
 

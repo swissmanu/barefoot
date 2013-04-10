@@ -8,35 +8,12 @@ var _ = require('underscore')
 function startup(Router) {
 	var app = express();
 
-	/*
-	app.get('/javascripts/app.js', function(req, res) {
-
-		var bundle = browserify([
-				path.join(process.cwd(), 'backbonetest.js')
-				//, path.join(process.cwd(), 'barefoot', 'client')
-				//, path.join(process.cwd(), 'barefoot', 'shared')
-			]);
-		bundle.ignore(path.join(process.cwd(), 'barefoot', 'server'));
-
-		debugger;
-
-		bundle.bundle({}, function(err, src) {
-			console.dir(err);
-			if(!err) {
-				res.set('content-type', 'text/javascript');
-				res.send(src);
-			}
-		});
-	});
-*/
-
-	app.use('/javascripts/app.js', browserify(path.join(process.cwd(), 'backbonetest.js'), {
+	app.use('/javascripts/app.js', browserify(path.join(process.cwd(), 'barefoot_test.js'), {
 		ignore: getServerOnlyFiles()
 		//, debug: true
 		//, gzip: true
 		//, minify: true
 	}));
-
 
 	var concreteRouter = new Router({
 		app: app
@@ -45,6 +22,13 @@ function startup(Router) {
 
 }
 
+/** PrivateFunction: getServerOnlyFiles
+ * Returns an array with absolute paths to the files contianed in the server
+ * subfolder.
+ *
+ * Returns:
+ *     (Array)
+ */
 function getServerOnlyFiles() {
 	var files = fs.readdirSync(__dirname);
 	_.each(files, function(file, i) {
