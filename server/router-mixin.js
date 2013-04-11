@@ -19,10 +19,11 @@ function route(route, name) {
 };
 
 function render(view) {
-	var layout = fs.readFileSync('./layout.html');
-	$ = cheerio.load(layout);
-	
-	$(view.el).html(view.toHTML());
+	var layout = fs.readFileSync('./layout.html')
+		, $ = cheerio.load(layout)
+		, rendered = view.toHTML($);
+
+	$(view.el).html(rendered);
 	return this.res.send($.html());
 };
 

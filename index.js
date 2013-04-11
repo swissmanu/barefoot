@@ -34,11 +34,9 @@ _.extend(View.prototype, environmentSpecific.ViewMixin);
  * Parameters:
  *     (Barefoot.Router) Router
  */
-function start(Router) {
-	environmentSpecific.startup(Router);
+function start(Router, startOptions) {
+	environmentSpecific.startup(Router, startOptions);
 }
-
-
 
 module.exports = {
 	Router: Router
