@@ -1,6 +1,6 @@
 var Backbone = require('backbone');
 
-function listen() {
+function start() {
 	return $(function() {
 		return Backbone.history.start({
 			pushState: true
@@ -37,7 +37,7 @@ var _routeToRegExp = (function(original) {
 
 
 module.exports = {
-	listen: listen
+	start: start
 	, render: render
 	, _routeToRegExp: _routeToRegExp
 };

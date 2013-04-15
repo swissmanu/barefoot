@@ -2,18 +2,18 @@ var cheerio = require('cheerio')
 	, _ = require('underscore')
 	, Backbone = require('backbone');
 
-//Backbone.View.prototype.toHTML = function toHTML() {
-function toHTML($) {
-	var html = this.template;
-	return html;
-};
+function prepareNestedView(nestedView) {
+	nestedView.$ = this.$;
+	nestedView.$el = this.$(nestedView.el);
 
-function setElement() {};
+	return nestedView;
+}
+
+function setElement(element) {};
 function delegateEvents() {};
 
-
 module.exports = {
-	toHTML: toHTML
-	, setElement: setElement
+	setElement: setElement
 	, delegateEvents: delegateEvents
+	, prepareNestedView: prepareNestedView
 };
