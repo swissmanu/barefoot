@@ -1,3 +1,3 @@
 module.exports = {
-	//ViewMixin: require('./view-mixin')
+	ViewMixin: require('./view-mixin')
 };

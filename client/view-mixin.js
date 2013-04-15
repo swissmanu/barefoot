@@ -1,11 +1,44 @@
-//Backbone.View.prototype.toHTML = function toHTML() {
-var toHTML = function toHTML() {
-	return this.template;
-};
+/** Mixin: Barefoot.client.View
+ *
+ */
+var _ = require('underscore');
 
-function prepareNestedView(nestedView) { }
+function delegateEventsOnSubviews() {
+	this.delegateEvents();
+	
+	if(!_.isUndefined(this.subviews)) {
+		_.each(this.subviews, function(subview) {
+			subview.delegateEventsOnSubviews();
+		});
+	}
+}
+
+function undelegateEventsOnSubviews() {
+	this.undelegateEvents();
+
+	if(!_.isUndefined(this.subviews)) {
+		_.each(this.subviews, function(subview) {
+			subview.undelegateEventsOnSubviews();
+		});
+	}
+}
+
+function close() {
+	this.undelegateEvents();
+
+	if(!_.isUndefined(this.subviews)) {
+		_.each(this.subviews, function(subview) {
+			subview.close();
+		});
+	}
+
+	this.$el.empty();
+	this.unbind();
+}
+
 
 module.exports = {
-	toHTML: toHTML
-	, prepareNestedView: prepareNestedView
+	delegateEventsOnSubviews: delegateEventsOnSubviews
+	, undelegateEventsOnSubviews: undelegateEventsOnSubviews
+	, close: close
 };

@@ -15,16 +15,11 @@ _.extend(MonkeyRouter, Backbone.Router);
 _.extend(MonkeyRouter.prototype, Backbone.Router.prototype);
 
 
-var Router = MonkeyRouter.extend({
-	renderedViews: {}
-});
-
+var Router = MonkeyRouter.extend({});
 _.extend(Router.prototype, environmentSpecific.RouterMixin);
 
 
-var View = Backbone.View.extend({
-	subviews: []
-});
+var View = Backbone.View.extend({});
 _.extend(View.prototype, environmentSpecific.ViewMixin);
 
 

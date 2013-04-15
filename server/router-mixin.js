@@ -25,7 +25,7 @@ function render(view) {
 	var $ = cheerio.load(this.layoutTemplate);
 
 	if(!_.isUndefined(this.mainView)) {
-		var clonedMainView = _.clone(this.mainView);
+		var clonedMainView = _.clone(this.mainView());
 		clonedMainView.$ = $;
 		clonedMainView.$el = $(clonedMainView.el);
 		clonedMainView.render();
