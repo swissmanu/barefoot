@@ -33,6 +33,8 @@ _.extend(View.prototype, environmentSpecific.ViewMixin);
  *
  * Parameters:
  *     (Barefoot.Router) Router
+ *     (Object) startOptions - These object literal is passed to the final
+ *                             Router.
  */
 function start(Router, startOptions) {
 	environmentSpecific.startup(Router, startOptions);

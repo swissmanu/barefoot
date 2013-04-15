@@ -7,6 +7,7 @@ var Backbone = require('backbone')
 function preInitialize(options) {
 	this.app = options.app;
 	this.layoutTemplate = options.layoutTemplate;
+	this.startExpressApp = options.startExpressApp;
 }
 
 function route(route, name) {
@@ -23,6 +24,13 @@ function route(route, name) {
 function render(view) {
 	var $ = cheerio.load(this.layoutTemplate);
 
+	if(!_.isUndefined(this.mainView)) {
+		var clonedMainView = _.clone(this.mainView);
+		clonedMainView.$ = $;
+		clonedMainView.$el = $(clonedMainView.el);
+		clonedMainView.render();
+	}
+
 	view.$ = $;
 	view.$el = $(view.el);
 	view.render();
@@ -31,9 +39,7 @@ function render(view) {
 };
 
 function start() {
-	this.app.listen(3030, function() {
-		console.log('Express server listening on port 3030');
-	});
+	this.startExpressApp();
 };
 
 

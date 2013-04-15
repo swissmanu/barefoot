@@ -8,3 +8,10 @@ $(function() {
 		return Backbone.history.navigate($(e.target).attr('href'), true);
 	});
 });
+
+
+function startup(Router, startOptions) {
+	console.log('Startup!');
+}
+
+module.exports = startup;
