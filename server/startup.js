@@ -7,8 +7,8 @@ function startup(Router, startOptions) {
 			+ 'on the server.');
 	} else {
 		// Just inject everything from the startup options into the router.
-		var concreteRouter = new Router(startOptions);
-		concreteRouter.start();
+		var concreteServerRouter = new Router(startOptions);
+		concreteServerRouter.start();
 	}
 }
 

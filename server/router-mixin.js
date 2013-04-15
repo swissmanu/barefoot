@@ -13,7 +13,7 @@ function preInitialize(options) {
 function route(route, name) {
 	var self = this;
 
-	return self.app.get(route, function(req, res) {
+	return self.app.get('/' + route, function(req, res) {
 		var callback = self[self.routes[route]];
 		self.res = res;
 
