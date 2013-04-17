@@ -14,9 +14,9 @@ echo '---- Installing node-jscoverage ----'
 cd /tmp
 git clone git://github.com/visionmedia/node-jscoverage.git
 cd node-jscoverage
-./configure
-make
-make install
+sudo ./configure
+sudo make
+sudo make install
 
 echo '######################################'
 echo '#           BEFORE INSTALL           #'

@@ -20,7 +20,6 @@
 	, "devDependencies": {
 		"mocha": "~1.8.2"
 		, "chai": "~1.5.0"
-		, "jscoverage": "git://github.com/mweibel/jscoverage.git#fix-exclude-regexp"
 		, "jshint": "~1.1.0"
 		, "mocha-lcov-reporter": "~0.0.1"
 		, "coveralls": "~2.0.7"
