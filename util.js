@@ -6,13 +6,13 @@
  */
 var _ = require('underscore');
 
-/** PrivateFunction: mergeObjectProperties
- * This function takes two objects and uses underscores extend function to
+/** PrivateFunction: mergeMixins
+ * This function takes two mixins and uses underscores extend function to
  * merge each object contained inside of them.
  *
  * > var A = { person: { name: 'Fritz' } };
  * > var B = { person: { surname: 'Fritzenson' }, city: 'Fritzhausen' };
- * > var merged = mergeObjectProperties(A, B);
+ * > var merged = mergeMixins(A, B);
  * > // { person: { name: 'Fritz', surname: 'Fritzenson' }, city: 'Fritzhausen'}
  *
  * Parameters:
@@ -22,10 +22,17 @@ var _ = require('underscore');
  * Returns:
  *     A merged object
  */
-function mergeObjectProperties(objectA, objectB) {
-	var keys = _.keys(objectA);
+function mergeMixins(objectA, objectB) {
+	var keysA = _.keys(objectA)
+		, keysB = _.keys(objectB);
 
-	_.each(keys, function(key) {
+	_.each(keysA, function(key) {
+		if(_.has(objectB, key)) {
+			_.extend(objectA[key], objectB[key]);
+		}
+	});
+
+	_.each(keysB, function(key) {
 		if(_.has(objectA, key)) {
 			_.extend(objectA[key], objectB[key]);
 		} else {
@@ -58,7 +65,7 @@ function loadMixins() {
 	}
 
 	if(!_.isUndefined(shared) && !_.isUndefined(specific)) {
-		specific = mergeObjectProperties(specific, shared);
+		specific = mergeMixins(specific, shared);
 	} else if(!_.isUndefined(shared) && _.isUndefined(specific)) {
 		specific = shared;
 	}
