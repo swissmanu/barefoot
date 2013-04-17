@@ -4,10 +4,10 @@ Barefoot makes code sharing between browser and server reality. Write your appli
 It builds upon the popular [Backbone.JS](http://backbonejs.org/) library and keeps its own additions as unobtrusive as possible.
 
 ## Progress
-- [X] Router / History
-- [X] View
-- [ ] Model
-- [ ] Collection
+* Router / History: *implemented*
+* View: *implemented*
+* Model
+* Collection
 
 ## Documentation
 The latest version of the code documenation is available here:
