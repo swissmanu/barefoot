@@ -22,7 +22,7 @@ env:
         # travis encrypt GH_OAUTH_TOKEN=b2797fff05e7461c4c8174fae08fb006cbadba9f
         #
         # Copy the resulting "secure" property here:
-        - secure: "liK5yW5Lg7xeKyP7Fe+Gta/kLCDB67lqoNi+u3gX7M4ObqVo5hKrnsNMaGPk\nR8WoiW4anBHba8PAvcBC/VWgd3S1PXuFawQzeRvYps+I8riqx4Dt+IzXiArd\nEvMQprwuVT94vGsoOa1SDXKikpmR+Ka7XA4tVvGsMlQS7Fbrmfs="
+        - secure: "GkmmNZyhUKJHI31yNlwFeYfp/l3g3l7NyUeOJEP614jnqJurGjb+QZOFOgNE\nxHcHZ78zDQgGqs5wBK1x9WFKubSCNBaZTvGJO7HPgGWJk7eKCqV44Hwtr39C\nUnIQF7E2dJWycgRSMVvp3GcqsneMBcWBKVBljW9dq5uI4cXCHUI="
         
         # GH_USER_NAME & GH_PROJECT_NAME
         # Github account the token above belongs to:
