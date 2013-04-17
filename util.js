@@ -1,8 +1,7 @@
 /** Class: Barefoot.Util
  * Contains helper functions for loading environment specific mixins.
  *
- * Please notice:
- * This utilities are only available inside of barefoot.
+ * These utilities are only available inside of barefoot.
  */
 
 /** Function: loadMixins
@@ -14,7 +13,7 @@
  *     A mixin to give a Backbone object barefoot capabilities.
  */
 function loadMixins() {
-	var specific;
+	var specific;    
 
 	if(process.browser) {
 		specific = require('./client');
