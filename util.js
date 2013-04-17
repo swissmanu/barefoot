@@ -13,7 +13,7 @@
  *     A mixin to give a Backbone object barefoot capabilities.
  */
 function loadMixins() {
-	var specific;    
+	var specific;
 
 	if(process.browser) {
 		specific = require('./client');
