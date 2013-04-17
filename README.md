@@ -7,6 +7,8 @@ Server side execution is accomplished by using [Node.JS](http://nodejs.org/) and
 
 If you implement your views with care, your application will match the [Unobtrusive JavaScript](http://roca-style.org/#unobtrusive-javascript) principle completely.
 
+[![Build Status](https://travis-ci.org/swissmanu/barefoot.png?branch=master)](https://travis-ci.org/swissmanu/barefoot)
+
 ## Progress
 * Router / History: *implemented*
 * View: *implemented*
