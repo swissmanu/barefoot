@@ -8,7 +8,10 @@
 		, "server"
 		, "http"
 		, "shared"
-	]
+	],
+	"scripts": {
+		"test": "make test"
+	}
 	, "dependencies": {
 		"express": "~3.1.0"
 		, "browserify-middleware": "~1.6.0"
