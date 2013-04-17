@@ -6,7 +6,6 @@
  * mixins.
 *
  * Environment Specific Mixins:
- *     - <Barefoot.View.Shared>
  *     - <Barefoot.View.Client>
  *     - <Barefoot.View.Server>
  *
@@ -43,33 +42,111 @@
  * You may be used to create your views subviews directly in the render 
  * function and call their render function there.
  *
- * Barefoot supports you by providing the <Barefoot.View.Shared.addSubview> and
- * <Barefoot.View.Shared.removeSubview> functions. Use these functions inside
- * the initialization function of your view.
+ * Barefoot supports you by providing the <addSubview> and <removeSubview>
+ * functions. Use these functions inside the initialization function of your
+ * view.
+ *
  * Managing subviews this way brings a few improvements:
  * * Barefoot can render views on its own on the server and the browser client
  * * You do not take care of destroying your view hiearchy when rendering a new
  *   view. Barefoot will handle this for you. (No more Zombies)
+ *
+ * Attention:
+ * Please be aware you are not overwriting the <renderSubviews> and <render>
+ * method. This would break barefoots rendering mechanisms on the server and
+ * client.
  */
 var _ = require('underscore')
     , Backbone = require('backbone');
 
-/* applyMixin
- * Applies a mixin to the given parameter by using underscores extend function.
- *
- * This function is exported via 'module.exports' directly.
+
+/** Function: addSubview
+ * Adds a Barefoot.View as subview of this view. Sets the parentView property
+ * of the subview to this view.
  *
  * Parameters:
- *     (Object) - The mixin to apply
- *
- * Returns:
- *     A view object with the given mixin applied.
+ *     (Barefoot.View) subview - <Barefoot.View> to add as subview to this view
  */
-function applyMixin(mixin) {
-    var View = Backbone.View.extend({});
-    _.extend(View.prototype, mixin);
+function addSubview(subview) {
+	if(_.isUndefined(this.subviews)) {
+		this.subviews = [];
+	}
 
-    return View;
+	subview.parentView = this;
+	this.subviews.push(subview);
 }
 
-module.exports = applyMixin;
+/** Function: removeSubview
+ * Removes <Barefoot.View> from this view (if present as subview) and sets the
+ * former subviews parentView property to undefined.
+ *
+ * Parameters:
+ *     (Barefoot.View) subview - A <Barefoot.View> sbuview to remove from this
+ *                               view
+ */
+function removeSubview(subview) {
+	subview.close();
+
+	if(this.subviews) {
+		this.subviews = _.without(this.subviews, subview);
+	}
+
+	subview.parentView = undefined;
+}
+
+/** Function: renderSubviews
+ * Iterates each present subview of this view and renders it to the DOM. Ensures
+ * that all events of the subviews are bind to the DOM.
+ *
+ * Attention:
+ * *Do never* call this method on your own. <Barefoot.View.Shared.render> 
+ * invoces this method automatically when needed.
+ */
+function renderSubviews() {
+	var self = this;
+
+	_.each(self.subviews, function(subview) {
+		subview.$ = self.$;
+		subview.$el = self.$(subview.el);
+
+		subview.render.call(subview);
+		subview.delegateEvents();
+	});
+}
+
+/** Function: render
+ * Overwrites the default Backbone.View.render method. It automatically
+ * invokes "renderView" and <renderSubviews>.
+ *
+ * If your concrete view object does not implement a renderView function, an
+ * error will be generated. So please do implement one ;)
+ *
+ * Attention:
+ * * Do *not* overwrite this method as you are used to from "normal" Backbone
+ *   view implementations. Create a *renderView* method in your view instead!
+ * * Make sure you implement a renderView() function for your concrete
+ *   view.
+ *
+ * See also:
+ * * <renderSubviews>
+ */
+function render() {
+	if(!_.isUndefined(this.renderView)) {
+		this.renderView();
+	} else {
+		throw new Error('No renderView() method found in view', this);
+	}
+	this.renderSubviews();
+}
+
+
+var View = Backbone.View.extend({});
+View.prototype.addSubview = addSubview;
+View.prototype.removeSubview = removeSubview;
+View.prototype.renderSubviews = renderSubviews;
+View.prototype.render = render;
+
+module.exports = function applyMixin(mixin) {
+    _.extend(View.prototype, mixin);
+    return View;
+};
