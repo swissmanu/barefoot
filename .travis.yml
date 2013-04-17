@@ -1,0 +1,41 @@
+after_success:
+    - ./.travis/after_success.sh
+
+language: node_js
+node_js:
+  - 0.8
+
+script: "make docs"
+
+env:
+    global:
+        # GH_OAUTH_TOKEN is the oauth token generated as described at
+        # https://help.github.com/articles/creating-an-oauth-token-for-command-line-use
+        #
+        # curl -u 'username' -d '{"scopes":["repo"],"note":"push to gh-pages from travis"}' https://api.github.com/authorizations
+        #
+        # It must be encrypted using the travis gem
+        # http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables
+        #
+        # travis encrypt GH_OAUTH_TOKEN=b2797fff05e7461c4c8174fae08fb006cbadba9f
+        #
+        # Copy the resulting "secure" property here:
+        - secure: "liK5yW5Lg7xeKyP7Fe+Gta/kLCDB67lqoNi+u3gX7M4ObqVo5hKrnsNMaGPk\nR8WoiW4anBHba8PAvcBC/VWgd3S1PXuFawQzeRvYps+I8riqx4Dt+IzXiArd\nEvMQprwuVT94vGsoOa1SDXKikpmR+Ka7XA4tVvGsMlQS7Fbrmfs="
+        
+        # GH_USER_NAME & GH_PROJECT_NAME
+        # Github account the token above belongs to:
+        - GH_USER_NAME: swissmanu
+        - GH_PROJECT_NAME: barefoot
+
+        # GIT_AUTHOR_NAME & GIT_AUTHOR_EMAIL
+        # Git author which travis uses for commiting into the repo.
+        - GIT_AUTHOR_NAME: "TravisCI"
+        - GIT_AUTHOR_EMAIL: ""
+
+        # CI_HOME
+        # A shortcut to the directory where travis cloned the actual git repo
+        - CI_HOME=`pwd`/$TRAVIS_REPO_SLUG
+
+        # $RESULT_DOCS
+        # A shortcut to the built code documentation
+        - RESULT_DOCS=$CI_HOME/docs
