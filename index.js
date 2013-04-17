@@ -1,38 +1,32 @@
+/** Title: Barefoot
+ * Barefoot makes it possible to render and run a Backbone application on a
+ * node.js server. To accomplish this task, barefoot adds a few mixins to 
+ * Backbones base objects.
+ *
+ * Author:
+ *     Manuel Alabor <manuel@alabor.me>
+ */
+
+
 var Backbone = require('backbone')
 	, _ = require('underscore')
 	, path = require('path')
-	, environmentSpecific = requireEnvironmentSpecific();
+	, mixins = loadMixins()
+	, Router = require('./router')(mixins.RouterMixin)
+	, View = require('./view')(mixins.ViewMixin)
 
-
-var MonkeyRouter = function(options) {
-	if(!_.isUndefined(this.preInitialize)) {
-		this.preInitialize(options);
-	}
-
-	return Backbone.Router.call(this, options);
-}
-_.extend(MonkeyRouter, Backbone.Router);
-_.extend(MonkeyRouter.prototype, Backbone.Router.prototype);
-
-
-var Router = MonkeyRouter.extend({});
-_.extend(Router.prototype, environmentSpecific.RouterMixin);
-
-
-var View = Backbone.View.extend({});
-_.extend(View.prototype, environmentSpecific.ViewMixin);
-
-
-/** Function: start
+/* start
  * Starts your application using the given router.
  *
  * Parameters:
- *     (Barefoot.Router) Router
+ *     (<Barefoot.Router>) Router - A <Barefoot.Router> class. Make sure you do
+ *                                  *not* pass an instance! (no "new Router()"
+ *                                  etc.)
  *     (Object) startOptions - These object literal is passed to the final
  *                             Router.
  */
 function start(Router, startOptions) {
-	environmentSpecific.startup(Router, startOptions);
+	mixins.startup(Router, startOptions);
 }
 
 module.exports = {
@@ -42,8 +36,7 @@ module.exports = {
 };
 
 
-
-/** PrivateFunction: mergeObjectProperties
+/* mergeObjectProperties
  * This function takes two objects and uses underscores extend function to
  * merge each object contained inside of them.
  *
@@ -57,7 +50,7 @@ module.exports = {
  *     (Object) objectB
  *
  * Returns:
- *     (Object) merged
+ *     A merged object
  */
 function mergeObjectProperties(objectA, objectB) {
 	var keys = _.keys(objectA);
@@ -73,16 +66,18 @@ function mergeObjectProperties(objectA, objectB) {
 	return objectA;
 }
 
-/** PrivateFunction: requireEnvironmentSpecific
- * Since Barefoot is runnable on server or client, this function returns the
- * correct backbone customizations for each of these environments.
- * If there is code available which is used in both environments, these
- * fragments are merged with the specific ones.
+/* loadMixins
+ * Since Barefoot is runnable on server and client, this function returns 
+ * environment specific code read from the "server", "client" and "shared"
+ * folders.
+ * 
+ * If there is shared code available these it gets merged with the specific
+ * ones.
  *
  * Returns:
- *     (Object) - the actual, environment specific module
+ *     A mixin to give a Backbone object barefoot capabilities.
  */
-function requireEnvironmentSpecific() {
+function loadMixins() {
 	var specific
 		, shared = require('./shared');
 

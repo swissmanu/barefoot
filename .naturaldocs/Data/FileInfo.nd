@@ -1,0 +1,15 @@
+1.52
+JavaScript
+/Users/manuel/Projekte/barefoot/shared/index.js	1366034845	0	/Users/manuel/Projekte/barefoot/shared/index.js
+/Users/manuel/Projekte/barefoot/server/startup.js	1366018673	0	/Users/manuel/Projekte/barefoot/server/startup.js
+/Users/manuel/Projekte/barefoot/index.js	1366182531	1	Barefoot
+/Users/manuel/Projekte/barefoot/client/index.js	1365598619	0	/Users/manuel/Projekte/barefoot/client/index.js
+/Users/manuel/Projekte/barefoot/router.js	1366183057	1	Barefoot.Router
+/Users/manuel/Projekte/barefoot/view.js	1366182965	1	Barefoot.View
+/Users/manuel/Projekte/barefoot/client/view-mixin.js	1366181216	1	Barefoot.View.Client
+/Users/manuel/Projekte/barefoot/client/startup.js	1366097368	0	/Users/manuel/Projekte/barefoot/client/startup.js
+/Users/manuel/Projekte/barefoot/client/router-mixin.js	1366181098	1	Barefoot.Router.Client
+/Users/manuel/Projekte/barefoot/server/router-mixin.js	1366181257	1	Barefoot.Router.Server
+/Users/manuel/Projekte/barefoot/server/view-mixin.js	1366183106	1	Barefoot.View.Server
+/Users/manuel/Projekte/barefoot/shared/view-mixin.js	1366181715	1	Barefoot.View.Shared
+/Users/manuel/Projekte/barefoot/server/index.js	1365598614	0	/Users/manuel/Projekte/barefoot/server/index.js

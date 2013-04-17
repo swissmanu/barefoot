@@ -4,8 +4,9 @@
  * contained.
  *
  * See also:
- *     - Barefoot.View
- *     - Barefoot.Router.Client
+ * * <Barefoot.View>
+ * * <Barefoot.View.Shared>
+ * * <Barefoot.Router.Client>
  */
 var _ = require('underscore');
 
@@ -28,7 +29,10 @@ function delegateEventsOnSubviews() {
 
 /** Function: close
  * Removes a view from the DOM and ensures that all events of the view itself
- * and its subviews are removed too.
+ * and its subviews are removed too. Kill aaaaall the zombies, aarrrrrr.
+ *
+ * See also:
+ * * <Barefoot.Router.Client.render>
  */
 function close() {
 	this.undelegateEvents();

@@ -1,10 +1,12 @@
 /** Mixin: Barefoot.Router.Client
- * Client specific code for the Barefoot.Router. The complete view object
+ * Client specific code for the <Barefoot.Router>. The complete view object
  * restoration when receiving prerendered UI's from the server is handled in the
- * Barefoot.Router.Client.start method.
+ * <start> method.
  *
  * See also:
- *     - Barefoot.View.Client
+ * * <Barefoot.Router>
+ * * <Barefoot.View.Shared>
+ * * <Barefoot.View.Client>
  */
 var Backbone = require('backbone')
 	, _ = require('underscore');
@@ -16,14 +18,14 @@ var Backbone = require('backbone')
  * already rendered UI from the server. This process consists of the following
  * steps:
  *
- * - If present, an instance of the main view is created and all events are 
+ * * If present, an instance of the main view is created and all events are 
  *   bound to the DOM elements.
- * - The Barefoot.Router.Client.render method gets replaced temporarly to avoid
+ * * The Barefoot.Router.Client.render method gets replaced temporarly to avoid
  *   rerendering already available content to the DOM. The replacement method
  *   only ensures that the necessary events get bound to the DOM.
  *
  * See also:
- *     - Barefoot.Router.Client.render
+ * * <render>
  */
 function start() {
 	var self = this
@@ -55,16 +57,16 @@ function start() {
 }
 
 /** Function: render
- * Calls the Barefoot.View.Client.render method of the passed Barefoot.View. If
- * another view was rendered before, close gets called to properly remove that
- * view from the DOM before rendering the new view.
+ * Calls the <Barefoot.View.Shared.render> method of the passed <Barefoot.View>.
+ * If another view was rendered before, <Barefoot.View.Client.close> gets called
+ * to properly remove that view from the DOM before rendering the new view.
  *
  * Paramteres:
- *     (Barefoot.View) view
+ *     (Barefoot.View) view - <Barefoot.View> to render into the DOM.
  *
  * See also:
- *     - Barefoot.View.Client.close
- *     - Barefoot.View.Client.render
+ * * <Barefoot.View.Client.close>
+ * * <Barefoot.View.Shared.render>
  */
 function render(view) {
 	if(!_.isUndefined(this.currentView)) {
