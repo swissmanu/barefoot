@@ -1,5 +1,5 @@
 {
-	"name": "barefoot"
+	"name": "Barefoot"
 	, "version": "0.0.1"
 	, "private": true
 	, "keywords": [
@@ -26,16 +26,6 @@
 		"node": ">=0.8"
 	}
 	, "author": "Manuel Alabor <manuel@alabor.me>"
-	, "contributors": [
-		{
-			"name": "Alexandre Joly",
-			"email": "ajoly@hsr.ch"
-		},
-		{
-			"name": "Michael Weibel",
-			"email": "mweibel@hsr.ch"
-		}
-	]
-	, "repository": "http://github.com/swissmanu/barefoot"
+	, "repository": "https://github.com/swissmanu/barefoot"
 	, "license": "MIT"
 }

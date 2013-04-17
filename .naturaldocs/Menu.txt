@@ -1,8 +1,9 @@
 Format: 1.52
 
 
-# You can add a title and sub-title to your menu like this:
-# Title: [project name]
+Title: Barefoot
+
+# You can also add a sub-title to your menu like this:
 # SubTitle: [subtitle]
 
 # You can add a footer to your documentation like this:
