@@ -1,5 +1,8 @@
 /** Class: Barefoot.Util
  * Contains helper functions for loading environment specific mixins.
+ *
+ * Please notice:
+ * This utilities are only available inside of barefoot.
  */
 var Backbone = require('backbone')
 	, _ = require('underscore')
