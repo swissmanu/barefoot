@@ -7,7 +7,7 @@ language: node_js
 node_js:
   - 0.8
 
-script: "make docs"
+script: "make lint docs"
 
 env:
     global:

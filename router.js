@@ -85,11 +85,11 @@ function createBackboneRouterWithPreInitialize() {
 		}
 
 		return Backbone.Router.call(this, options);
-	}
+	};
 	_.extend(MonkeyRouter, Backbone.Router);
 	_.extend(MonkeyRouter.prototype, Backbone.Router.prototype);
 
-	return MonkeyRouter;	
+	return MonkeyRouter;
 }
 
 /* applyMixin
@@ -126,7 +126,7 @@ function exporter(mixin) {
 	var backboneRouter = createBackboneRouterWithPreInitialize()
 		, barefootRouter = applyMixin(backboneRouter, mixin);
 
-	return barefootRouter;	
+	return barefootRouter;
 }
 
 module.exports = exporter;

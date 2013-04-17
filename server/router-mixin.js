@@ -4,9 +4,7 @@
  * See also:
  * * <Barefoot.Router>
  */
-var Backbone = require('backbone')
-	, fs = require('fs')
-	, _ = require('underscore')
+var _ = require('underscore')
 	, cheerio = require('cheerio');
 
 
@@ -38,22 +36,21 @@ function preInitialize(options) {
  * route defined in the router is added to the Express.JS app.
  *
  * Parameters:
- *     (String) route - URI
- *     (String) name - Name of the route
+ *     (String) routeUri - URI
  *
  * Returns:
  *     The created Express.JS route
  */
-function route(route, name) {
+function route(routeUri) {
 	var self = this;
 
-	return self.app.get('/' + route, function(req, res) {
-		var callback = self[self.routes[route]];
+	return self.app.get('/' + routeUri, function(req, res) {
+		var callback = self[self.routes[routeUri]];
 		self.res = res;
 
 		return callback.apply(self, _.values(req.query));
 	});
-};
+}
 
 /** Function: render
  * This function initiates the rendering of the passed view. This is done by
@@ -90,14 +87,14 @@ function render(view) {
 	view.render();
 
 	return this.res.send($.html());
-};
+}
 
 /** Function: start
  * Calls the passed starter function, buffered in <preInitialize>.
  */
 function start() {
 	this.startExpressApp();
-};
+}
 
 
 module.exports = {

@@ -96,6 +96,7 @@ function render() {
 
 module.exports = {
 	addSubview: addSubview
+	, removeSubview: removeSubview
 	, renderSubviews: renderSubviews
 	, render: render
 };

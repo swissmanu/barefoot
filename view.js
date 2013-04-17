@@ -69,7 +69,7 @@ function applyMixin(mixin) {
     var View = Backbone.View.extend({});
     _.extend(View.prototype, mixin);
 
-    return View;    
+    return View;
 }
 
 module.exports = applyMixin;

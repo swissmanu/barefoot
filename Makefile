@@ -2,4 +2,7 @@ docs:
 	-mkdir ./docs
 	@NaturalDocs -i ./ -o HTML ./docs -p ./.naturaldocs -xi ./node_modules -s Default style
 
-.PHONY: docs
+lint:
+	@node_modules/.bin/jshint *.js server/*.js client/*.js shared/*.js
+
+.PHONY: docs lint

@@ -4,9 +4,7 @@
  * Please notice:
  * This utilities are only available inside of barefoot.
  */
-var Backbone = require('backbone')
-	, _ = require('underscore')
-	, path = require('path');
+var _ = require('underscore');
 
 /** PrivateFunction: mergeObjectProperties
  * This function takes two objects and uses underscores extend function to
@@ -68,7 +66,6 @@ function loadMixins() {
 	return specific;
 }
 
-
-module.exports {
+module.exports = {
 	loadMixins: loadMixins
-}
+};

@@ -14,10 +14,10 @@
  * * <Barefoot.View>
  */
 
-function setElement(element) {};
-function delegateEvents() {};
-function undelegateEvents() {};
-function close() {};
+function setElement() {}
+function delegateEvents() {}
+function undelegateEvents() {}
+function close() {}
 
 module.exports = {
 	setElement: setElement

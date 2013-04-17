@@ -20,7 +20,7 @@ var Backbone = require('backbone');
  *                             initalizing it.
  */
 function startup(Router, startOptions) {
-
+	/* global $ */
 	$(function() {
 		// Ensure that Backbone is globally available when running on the
 		// client. Otherwise, the history singleton would no be available.

@@ -8,8 +8,7 @@
  * * <Barefoot.View.Shared>
  * * <Barefoot.View.Client>
  */
-var Backbone = require('backbone')
-	, _ = require('underscore');
+var _ = require('underscore');
 
 /** Function: start
  * When the application is coming up, this method gets called from
@@ -28,6 +27,7 @@ var Backbone = require('backbone')
  * * <render>
  */
 function start() {
+	/* global window */
 	var self = this
 		, originalRender = this.render;
 
@@ -45,7 +45,7 @@ function start() {
 
 		// Important: restore the normal render function:
 		self.render = originalRender;
-	}
+	};
 
 	// Get the current route and run its callback (which will call the replaced
 	// render function most probably):
