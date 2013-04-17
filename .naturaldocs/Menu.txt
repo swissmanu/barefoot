@@ -59,12 +59,14 @@ Group: Shared Mixins  {
 Group: Client Mixins  {
 
    File: Router  (no auto-title, client/router-mixin.js)
+   File: Startup  (no auto-title, client/startup.js)
    File: View  (no auto-title, client/view-mixin.js)
    }  # Group: Client Mixins
 
 Group: Server Mixins  {
 
    File: Router  (no auto-title, server/router-mixin.js)
+   File: Startup  (no auto-title, server/startup.js)
    File: View  (no auto-title, server/view-mixin.js)
    }  # Group: Server Mixins
 
