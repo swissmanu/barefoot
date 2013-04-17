@@ -12,7 +12,8 @@ var APIAdapter = function(options) {
 	this.initialize.apply(this, arguments);
 };
 
-// Just copy the extend function from Backbone. This will not harm anyone :)
+// To make APIAdapter looking and behave like any backbone object, kidnap the
+// extend function from any other Backbone object. Does not harm anyone :)
 APIAdapter.extend = Backbone.Model.extend;
 
 _.extend(APIAdapter.prototype, Backbone.Events, {
