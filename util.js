@@ -4,7 +4,6 @@
  * Please notice:
  * This utilities are only available inside of barefoot.
  */
-var _ = require('underscore');
 
 /** Function: loadMixins
  * Since Barefoot is runnable on server and client, this function returns 

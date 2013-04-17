@@ -5,7 +5,6 @@
  *
  * See also:
  * * <Barefoot.Router>
- * * <Barefoot.View.Shared>
  * * <Barefoot.View.Client>
  */
 var _ = require('underscore');

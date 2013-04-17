@@ -45,15 +45,12 @@ Timestamp: Generated on month day, year
 File: Barefoot  (index.js)
 File: Router  (no auto-title, router.js)
 File: View  (no auto-title, view.js)
+File: APIAdapter  (apiadapter.js)
 File: Util  (no auto-title, util.js)
-
-Group: Shared Mixins  {
-
-   File: View  (no auto-title, shared/view-mixin.js)
-   }  # Group: Shared Mixins
 
 Group: Client Mixins  {
 
+   File: APIAdapter  (no auto-title, client/apiadapter-mixin.js)
    File: Router  (no auto-title, client/router-mixin.js)
    File: Startup  (no auto-title, client/startup.js)
    File: View  (no auto-title, client/view-mixin.js)
@@ -61,6 +58,7 @@ Group: Client Mixins  {
 
 Group: Server Mixins  {
 
+   File: APIAdapter  (no auto-title, server/apiadapter-mixin.js)
    File: Router  (no auto-title, server/router-mixin.js)
    File: Startup  (no auto-title, server/startup.js)
    File: View  (no auto-title, server/view-mixin.js)
@@ -72,6 +70,5 @@ Group: Index  {
    Class Index: Classes
    Function Index: Functions
    Mixin Index: Mixins
-   Private Function Index: Private Functions
    }  # Group: Index
 

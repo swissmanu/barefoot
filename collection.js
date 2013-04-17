@@ -3,7 +3,7 @@ var Backbone = require('backbone')
 
 
 function sync() {
-	
+
 }
 
 
@@ -14,4 +14,4 @@ Collection.prototype.sync = sync;
 module.exports = function(mixin) {
     _.extend(Collection.prototype, mixin);
     return Collection;
-}
+};
