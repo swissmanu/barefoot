@@ -7,7 +7,7 @@ language: node_js
 node_js:
   - 0.8
 
-script: "make lint test docs"
+script: "make lint test-coveralls docs"
 
 env:
     global:

@@ -10,6 +10,14 @@ sudo apt-get update
 sudo apt-get install naturaldocs
 sudo ln -s /usr/bin/naturaldocs /usr/bin/NaturalDocs
 
+echo '---- Installing node-jscoverage ----'
+cd /tmp
+git clone git://github.com/visionmedia/node-jscoverage.git
+cd node-jscoverage
+./configure
+make
+make install
+
 echo '######################################'
 echo '#           BEFORE INSTALL           #'
 echo '#            - FINISH -              #'

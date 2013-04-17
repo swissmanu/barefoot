@@ -1,5 +1,5 @@
 describe('Util', function() {
-	var util = require('../../util');
+	var util = requireModule('./util');
 
 	describe('loadMixins', function() {
 		it('should load server mixins when called on server', function() {
