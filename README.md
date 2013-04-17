@@ -3,6 +3,10 @@ Barefoot makes code sharing between browser and server reality. Write your appli
 
 It builds upon the popular [Backbone.JS](http://backbonejs.org/) library and keeps its own additions as unobtrusive as possible.
 
+Server side execution is accomplished by using [Node.JS](http://nodejs.org/) and [Express.JS](http://expressjs.com/). Once delivered to the users browser, no additional JavaScript libraries are needed when configured properly.
+
+If you implement your views with care, your application will match the [Unobtrusive JavaScript](http://roca-style.org/#unobtrusive-javascript) principle completely.
+
 ## Progress
 * Router / History: *implemented*
 * View: *implemented*
