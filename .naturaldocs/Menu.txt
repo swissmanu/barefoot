@@ -43,10 +43,10 @@ Timestamp: Generated on month day, year
 
 
 File: Barefoot  (index.js)
-File: Router  (no auto-title, router.js)
-File: View  (no auto-title, view.js)
 File: APIAdapter  (apiadapter.js)
+File: Router  (no auto-title, router.js)
 File: Util  (no auto-title, util.js)
+File: View  (no auto-title, view.js)
 
 Group: Client Mixins  {
 
