@@ -195,7 +195,7 @@ function bindRoutes() {
 		this, this.apiRoutes.patch, this.app.patch, this.app
 	);
 	createPlainRoutes.call(
-		this, this.apiRoutes['delete'], this.app['delete'], this.app
+		this, this.apiRoutes.del, this.app.del, this.app
 	);
 }
 
