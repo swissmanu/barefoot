@@ -32,7 +32,7 @@ env:
         # GIT_AUTHOR_NAME & GIT_AUTHOR_EMAIL
         # Git author which travis uses for commiting into the repo.
         - GIT_AUTHOR_NAME: "TravisCI"
-        - GIT_AUTHOR_EMAIL: ""
+        - GIT_AUTHOR_EMAIL: "noreply@travis-ci.org"
 
         # CI_HOME
         # A shortcut to the directory where travis cloned the actual git repo
