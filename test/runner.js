@@ -12,6 +12,5 @@ global.requireModule = function(module) {
 	if(module.substr(0,2) === './') {
 		module = moduleRoot + module.substr(2);
 	}
-	console.log(module);
 	return require(module);
 }
