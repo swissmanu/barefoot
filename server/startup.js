@@ -17,13 +17,17 @@ var _ = require('underscore');
  *     (Object) startOptions - This object literal is passed to the router when
  *                             initalizing it.
  */
-function startup(Router, startOptions) {
+function startup(Router, APIAdapter, startOptions) {
 	if(!_.has(startOptions, 'app')) {
 		throw new Error('Missing "app" property in "startOptions"! Please ' +
 			'pass a valid express app instance when starting the barefoot ' +
 			'router on the server.');
 	} else {
 		// Just inject everything from the startup options into the router.
+
+
+		new APIAdapter(startOptions);
+
 		var concreteServerRouter = new Router(startOptions);
 		concreteServerRouter.start();
 	}

@@ -60,7 +60,7 @@ var barefootUtil = require('./util')
  *                             Router.
  */
 function start(Router, startOptions) {
-	mixins.startup(Router, startOptions);
+	mixins.startup(Router, APIAdapter, startOptions);
 }
 
 module.exports = {

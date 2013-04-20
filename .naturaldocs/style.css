@@ -19,8 +19,9 @@
 	box-shadow: 0 2px 5px #888;
 }
 
-.CBody ul {
+.CBody ul, .CBody ol {
 	padding: 0 22px;
+	padding-bottom: 10px;
 	margin: 0;
 }
 

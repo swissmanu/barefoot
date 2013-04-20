@@ -43,7 +43,7 @@ Timestamp: Generated on month day, year
 
 
 File: Barefoot  (index.js)
-File: APIAdapter  (apiadapter.js)
+File: APIAdapter  (no auto-title, apiadapter.js)
 File: Router  (no auto-title, router.js)
 File: Util  (no auto-title, util.js)
 File: View  (no auto-title, view.js)
@@ -70,5 +70,6 @@ Group: Index  {
    Class Index: Classes
    Function Index: Functions
    Mixin Index: Mixins
+   Private Function Index: Private Functions
    }  # Group: Index
 

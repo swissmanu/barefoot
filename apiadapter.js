@@ -1,14 +1,16 @@
-/** Class: APIAdapter
+/** Class: Barefoot.APIAdapter
  */
 
 var _ = require('underscore')
 	, Backbone = require('backbone');
 
 var APIAdapter = function(options) {
-	if(_.isUndefined(options)) {
-		options = {};
-	}
+	if(_.isUndefined(options)) { options = {}; }
+	if(this.preInitialize) { this.preInitialize(arguments); }
+	if(options.app) { this.app = options.app; }
+	if(options.apiRoutes) { this.apiRoutes = options.apiRoutes; }
 
+	this.bindRoutes.call(this);
 	this.initialize.apply(this, arguments);
 };
 
@@ -17,7 +19,7 @@ var APIAdapter = function(options) {
 APIAdapter.extend = Backbone.Model.extend;
 
 _.extend(APIAdapter.prototype, Backbone.Events, {
-
+	initialize: function initialize() { }
 });
 
 function applyMixin(mixin) {

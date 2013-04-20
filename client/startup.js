@@ -19,7 +19,7 @@ var Backbone = require('backbone');
  *     (Object) startOptions - This object literal is passed to the router when
  *                             initalizing it.
  */
-function startup(Router, startOptions) {
+function startup(Router, APIAdapter, startOptions) {
 	/* global $ */
 	$(function() {
 		// Ensure that Backbone is globally available when running on the
