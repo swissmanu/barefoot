@@ -1,12 +1,23 @@
 /** Class: Barefoot.Errors
  * This class contains a set of predefined error objects which are thought to be
- * used in your API route callbacks. (<Barefoot.APIAdapter.Server>)
+ * used in your API route callbacks. (<Barefoot.APIAdapter>)
  *
  * Each of these errors contain a proper HTTP status code which will be
  * delivered to the requesting client in case of an error.
  *
  * If you'd like to create your own error, you can use the <createError>
  * function to simplify the process.
+ *
+ * How to create a new error:
+ *
+ * > var errors = require('barefoot').errors;
+ * > var MyError = errors.createError(500, 'MyError');
+ * > throw new MyError('Something went terribly wrong :(');
+ *
+ * How to use builtin errors:
+ * 
+ * > var errors = require('barefoot').errors;
+ * > throw new errors.NotFoundError('Contact not found!');
  */
 
 /** Function: createError
@@ -33,7 +44,7 @@ function createError(httpStatusCode, name) {
 	return barefootError;
 }
 
-/** Function: NotFoundError
+/** Error: NotFoundError
  * If any ressource was not found, this is the generic error for that situation.
  * It is represented by an HTTP Not Found (404) status code.
  *

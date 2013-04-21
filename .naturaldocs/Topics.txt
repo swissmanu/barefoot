@@ -99,3 +99,12 @@ Topic Type: Private Function
 
    Keywords:
       privatefunction, privatefunctions
+
+
+Topic Type: Error
+
+   Plural: Errors
+   Break Lists: Yes
+
+   Keywords:
+      error, errors

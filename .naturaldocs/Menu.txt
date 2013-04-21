@@ -74,5 +74,6 @@ Group: Index  {
    Function Index: Functions
    Mixin Index: Mixins
    Private Function Index: Private Functions
+   Error Index: Errors
    }  # Group: Index
 
