@@ -249,28 +249,30 @@ function sync(method, model, options) {
 
 	if(_.isUndefined(url)) {
 		throw new Error('No url present for syncing!', model, options);
+	}
+
+	if(url.substr(0, apiPrefix.length) === apiPrefix) {
+		url = url.substr(apiPrefix.length);
+	}
+
+	var apiRouteCallback = this.apiRoutes[httpMethod][url]
+		, apiResult
+		, error;
+
+	if(_.isUndefined(apiRouteCallback)) {
+		throw new Error('Could not resolve API route: ' + url);
+	}
+
+	try {
+		apiResult = apiRouteCallback();
+	} catch(err) {
+		error = err;
+	}
+
+	if(!error) {
+		if(options.success) { options.success(apiResult); }
 	} else {
-		if(url.substr(0, apiPrefix.length) === apiPrefix) {
-			url = url.substr(apiPrefix.length);
-		}
-
-		var apiRouteCallback = this.apiRoutes[httpMethod][url]
-			, apiResult
-			, error;
-
-		if(apiRouteCallback) {
-			try {
-				apiResult = apiRouteCallback();
-			} catch(err) {
-				error = err;
-			}
-
-			if(!error) {
-				if(options.success) { options.success(apiResult); }
-			} else {
-				if(options.error) { options.error(error); }
-			}
-		}
+		if(options.error) { options.error(error); }
 	}
 }
 

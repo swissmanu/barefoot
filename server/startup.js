@@ -2,12 +2,16 @@
  * This startup mixin supplies a server specific startup function to get the
  * application up and running on the node.js server backend.
  */
-var _ = require('underscore');
+var _ = require('underscore')
+	, Backbone = require('backbone');
 
 /** Function: startup
- * This function simply creates the <Barefoot.Router> prepared with the server
- * side mixins. Before creating an instance of it, startOptions is checked if 
- * an Express.JS app is present (if not, an error gets thrown).
+ * On startup on the server, this function creates an <APIAdapter> if apiRoutes
+ * are present in the startOptions. Further the actual <Barefoot.Router> is 
+ * created an started using <Barefoot.Router.Server.start>.
+ *
+ * Before doing all this, startOptions is checked if an Express.JS app is
+ * present (if not, an error gets thrown which will stop the start process).
  *
  * Parameters:
  *     (Barefoot.Router) Router - A <Barefoot.Router> object. Important: This is
@@ -23,11 +27,17 @@ function startup(Router, APIAdapter, startOptions) {
 			'pass a valid express app instance when starting the barefoot ' +
 			'router on the server.');
 	} else {
+		if(_.has(startOptions, 'apiRoutes')) {
+			// Create an API router and inject its sync function into Backbone.
+			var apiAdapter = new APIAdapter(startOptions);
+			if(!_.isUndefined(apiAdapter, 'sync')) {
+				Backbone.sync = function() {
+					return apiAdapter.sync.apply(apiAdapter, arguments);
+				};
+			}
+		}
+
 		// Just inject everything from the startup options into the router.
-
-
-		new APIAdapter(startOptions);
-
 		var concreteServerRouter = new Router(startOptions);
 		concreteServerRouter.start();
 	}
