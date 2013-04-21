@@ -28,8 +28,11 @@ var _ = require('underscore')
  *
  * Beside the return value of the callback, the wrapper function sends 
  * automatically an HTTP OK (200) to the request creator. If the callback throws
- * any error, an HTTP Internal Server Error (500) is sent without any response
- * body.
+ * an error object, that object is inspected for an "httpStatusCode" property.
+ * If present, that status code is delivered to the requestor. If not, an HTTP
+ * Internal Server Error (500) is sent.
+ *
+ * For a set of errors with predefined HTTP status codes, see <Barefoot.Errors>.
  *
  * Route & Callback Examples:
  * > // "/contacts" would return the complete array with contacts
@@ -73,7 +76,11 @@ function createPlainRoutes(routes, binder, app) {
 				var apiResult = callback.apply(this, args);
 				res.send(200, apiResult);
 			} catch(err) {
-				res.send(500);
+				if(_.has(err, 'httpStatusCode')) {
+					res.send(err.httpStatusCode);
+				} else {
+					res.send(500);
+				}
 			}
 		});
 	});
@@ -98,8 +105,11 @@ function createPlainRoutes(routes, binder, app) {
  *
  * Beside the return value of the callback, the wrapper function sends 
  * automatically an HTTP OK (200) to the request creator. If the callback throws
- * any error, an HTTP Internal Server Error (500) is sent without any response
- * body.
+ * an error object, that object is inspected for an "httpStatusCode" property.
+ * If present, that status code is delivered to the requestor. If not, an HTTP
+ * Internal Server Error (500) is sent.
+ *
+ * For a set of errors with predefined HTTP status codes, see <Barefoot.Errors>.
  *
  * Route & Callback Examples:
  * > // Create a new contact with a POST to "/contacts". The contact argument
@@ -133,6 +143,7 @@ function createPlainRoutes(routes, binder, app) {
  *
  * See also:
  * * <createPlainRoutes>
+ * * <Barefoot.Errors>
  */
 function createContentRoutes(routes, binder, app) {
 	var self = this;
@@ -151,7 +162,11 @@ function createContentRoutes(routes, binder, app) {
 				var apiResult = callback.apply(this, args);
 				res.send(200, apiResult);
 			} catch(err) {
-				res.send(500);
+				if(_.has(err, 'httpStatusCode')) {
+					res.send(err.httpStatusCode);
+				} else {
+					res.send(500);
+				}
 			}
 		});
 	});
