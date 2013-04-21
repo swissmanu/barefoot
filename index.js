@@ -47,7 +47,8 @@ var barefootUtil = require('./util')
 	, View = require('./view')(mixins.ViewMixin)
 	, Model = require('./model')(mixins.ModelMixin)
 	, Collection = require('./collection')(mixins.CollectionMixin)
-	, APIAdapter = require('./apiadapter')(mixins.APIAdapterMixin);
+	, APIAdapter = require('./apiadapter')(mixins.APIAdapterMixin)
+	, Errors = require('./errors');
 
 /* start
  * Starts your application using the given router.
@@ -69,5 +70,6 @@ module.exports = {
 	, APIAdapter: APIAdapter
 	, Model: Model
 	, Collection: Collection
+	, errors: Errors
 	, start: start
 };
