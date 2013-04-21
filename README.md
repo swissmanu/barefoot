@@ -13,8 +13,9 @@ If you implement your views with care, your application will match the [Unobtrus
 ## Progress
 * Router / History: *implemented*
 * View: *implemented*
-* Model
-* Collection
+* Model: *implemented*
+* Collection: *implemented*
+* Restore Models after rendering on server
 
 ## Documentation
 The latest version of the code documenation is available here:
