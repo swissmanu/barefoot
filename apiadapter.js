@@ -23,8 +23,9 @@ _.extend(APIAdapter.prototype, Backbone.Events, {
 });
 
 function applyMixin(mixin) {
-    _.extend(APIAdapter.prototype, mixin);
-    return APIAdapter;
+	_.extend(APIAdapter.prototype, mixin);
+
+	return APIAdapter;
 }
 
 module.exports = applyMixin;

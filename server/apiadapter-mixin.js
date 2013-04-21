@@ -172,6 +172,10 @@ function createContentRoutes(routes, binder, app) {
 	});
 }
 
+function getAPIPrefix() {
+	return this.apiPrefix || '/api';
+}
+
 /** Function: prepareAPIUri
  * Prepends an API route URI with a prefix. If no apiPrefix property is defined
  * for this <APIAdapter>, the prefix is "/api" by default.
@@ -185,10 +189,8 @@ function createContentRoutes(routes, binder, app) {
  *     (String) the routeUri with a prefix.
  */
 function prepareAPIUri(routeUri) {
-	var prefix = '/api';
-	if(_.has(this, 'apiPrefix')) { prefix = this.apiPrefix; }
-
-	return path.join(prefix, routeUri);
+	var apiPrefix = getAPIPrefix();
+	return path.join(apiPrefix, routeUri);
 }
 
 /** Function: bindRoutes
@@ -214,7 +216,67 @@ function bindRoutes() {
 	);
 }
 
+var methodMap = {
+	'create': 'post'
+	, 'update': 'put'
+	, 'patch': 'patch'
+	, 'delete': 'delete'
+	, 'read': 'get'
+};
+
+/** Function: sync
+ * This is the core where server side API callbacks are dispatched. This 
+ * function replaces Backbone.sync and gets in place during startup
+ * (<Barefoot.Startup.Server>).
+ *
+ * Instead going the detour over an AJAX request, this implementation of sync
+ * calls the API callback directly by resolving the models url with the present
+ * apiRoutes.
+ *
+ * Parameters:
+ *     (String) method - A method (create, update, patch, delete or read) which
+ *                       will be used to resolve the models url properly.
+ *     (Backbone.Model) model - The model which wants to be synced. Can also be
+ *                              an instance of Backbone.Collection.
+ *     (Object) options - Should contain at least a success callback. Any api
+ *                        callback result will be delivered as argument of the
+ *                        success function.
+ */
+function sync(method, model, options) {
+	var url = options.url || _.result(model, 'url')
+		, apiPrefix = getAPIPrefix()
+		, httpMethod = methodMap[method];
+
+	if(_.isUndefined(url)) {
+		throw new Error('No url present for syncing!', model, options);
+	} else {
+		if(url.substr(0, apiPrefix.length) === apiPrefix) {
+			url = url.substr(apiPrefix.length);
+		}
+
+		var apiRouteCallback = this.apiRoutes[httpMethod][url]
+			, apiResult
+			, error;
+
+		if(apiRouteCallback) {
+			try {
+				apiResult = apiRouteCallback();
+			} catch(err) {
+				error = err;
+			}
+
+			if(!error) {
+				if(options.success) { options.success(apiResult); }
+			} else {
+				if(options.error) { options.error(error); }
+			}
+		}
+	}
+}
+
+
 module.exports = {
 	prepareAPIUri: prepareAPIUri
 	, bindRoutes: bindRoutes
+	, sync: sync
 };

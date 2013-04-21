@@ -95,7 +95,7 @@ Topic Type: Private Function
 
    Plural: Private Functions
    Break Lists: Yes
-   Can Group With: Function
+   Can Group With: Functions
 
    Keywords:
       privatefunction, privatefunctions
