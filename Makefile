@@ -1,5 +1,5 @@
 TEST_CMD=./node_modules/.bin/mocha --require test/runner.js test/specs/
-INSTRUMENTED_SOURCE=./lib-cov
+INSTRUMENTED_SOURCE=lib-cov
 
 docs:
 	-mkdir ./docs
@@ -13,11 +13,11 @@ test:
 
 test-instrument-for-coverage:
 	-rm -fr $(INSTRUMENTED_SOURCE)
-	@jscoverage ./lib $(INSTRUMENTED_SOURCE)
+	@jscoverage lib $(INSTRUMENTED_SOURCE)
 
 
 test-coveralls: test-instrument-for-coverage
-	@BAREFOOT_COVERAGE=1 $(TEST_CMD) --reporter mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+	@BAREFOOT_COVERAGE=1 $(TEST_CMD) --reporter mocha-lcov-reporter > ./node_modules/coveralls/bin/coveralls.js
 	-rm -fr $(INSTRUMENTED_SOURCE)
 
 .PHONY: docs test test-coveralls lint
