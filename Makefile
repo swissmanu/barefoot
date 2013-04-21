@@ -6,7 +6,7 @@ docs:
 	@NaturalDocs -i ./ -o HTML ./docs -p ./.naturaldocs -xi test -xi ./node_modules -s Default style
 
 lint:
-	@./node_modules/.bin/jshint *.js server/ client/ test/
+	@./node_modules/.bin/jshint lib/
 
 test:
 	@$(TEST_CMD) --reporter spec
