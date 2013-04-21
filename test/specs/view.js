@@ -1,6 +1,6 @@
 describe('View', function() {
 	var Barefoot = requireModule('./index')
-		, should = require('chai').should();
+		, should = requireModule('chai').should();
 
 	describe('Mixin Functionality', function() {
 		it('should apply a mixin to its prototype', function() {
@@ -60,4 +60,53 @@ describe('View', function() {
 		})
 	})
 
+	describe('render', function() {
+		var view;
+
+		beforeEach(function() {
+			view = new Barefoot.View({ el: 'body' });
+		})
+
+		it('should call renderView', function(done) {
+			view.renderView = done;
+			view.render();
+		})
+
+		it('should throw an error if renderView is not implemented', function() {
+			(function() {
+				view.render();
+			}).should.throw();
+		})
+
+		it('should call renderSubviews', function(done) {
+			view.renderView = function() {};
+			view.renderSubviews = done;
+			view.render();
+		})
+	})
+
+	describe('renderSubviews', function() {
+		var view
+			, subview;
+
+		beforeEach(function() {
+			view = new Barefoot.View({ el: 'body' });
+			subview = new Barefoot.View({ el: 'nav' });
+			
+			view.$ = function() {};
+			subview.renderView = function() {};
+			view.addSubview(subview);
+		})
+
+		it('should call render on subviews', function(done) {
+			subview.render = done;
+			view.renderSubviews();
+		})
+
+		it('should call delegateEvents on subviews', function(done) {
+			subview.delegateEvents = done;
+			view.renderSubviews();
+		})
+	})
+	
 })
