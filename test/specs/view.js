@@ -1,11 +1,10 @@
 describe('View', function() {
-	var Barefoot = requireModule('./index')
-		, should = requireModule('chai').should();
+	var should = require('chai').should();
 
 	describe('Mixin Functionality', function() {
 		it('should apply a mixin to its prototype', function() {
 			var mixin = { mix: function() { } }
-				, View = requireModule('./view')
+				, View = requireLibFile('view')
 				, withMixin = View(mixin);
 
 			withMixin.prototype.should.have.property('mix', mixin.mix);

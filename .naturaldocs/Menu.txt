@@ -21,6 +21,11 @@ Timestamp: Generated on month day, year
 #   yyyy  - Four digit year.  2006 is "2006"
 #   year  - Four digit year.  2006 is "2006"
 
+# These are indexes you deleted, so Natural Docs will not add them again
+# unless you remove them from this line.
+
+Don't Index: Variables, Files
+
 
 # --------------------------------------------------------------------------
 # 
@@ -42,28 +47,28 @@ Timestamp: Generated on month day, year
 # --------------------------------------------------------------------------
 
 
-File: Barefoot  (index.js)
-File: APIAdapter  (no auto-title, apiadapter.js)
-File: Collection  (no auto-title, collection.js)
-File: Errors  (no auto-title, errors.js)
-File: Model  (no auto-title, model.js)
-File: Router  (no auto-title, router.js)
-File: Util  (no auto-title, util.js)
-File: View  (no auto-title, view.js)
+File: Barefoot  (lib/index.js)
+File: APIAdapter  (no auto-title, lib/apiadapter.js)
+File: Collection  (no auto-title, lib/collection.js)
+File: Errors  (no auto-title, lib/errors.js)
+File: Model  (no auto-title, lib/model.js)
+File: Router  (no auto-title, lib/router.js)
+File: Util  (no auto-title, lib/util.js)
+File: View  (no auto-title, lib/view.js)
 
 Group: Client Mixins  {
 
-   File: Router  (no auto-title, client/router-mixin.js)
-   File: Startup  (no auto-title, client/startup.js)
-   File: View  (no auto-title, client/view-mixin.js)
+   File: Router  (no auto-title, lib/client/router-mixin.js)
+   File: Startup  (no auto-title, lib/client/startup.js)
+   File: View  (no auto-title, lib/client/view-mixin.js)
    }  # Group: Client Mixins
 
 Group: Server Mixins  {
 
-   File: APIAdapter  (no auto-title, server/apiadapter-mixin.js)
-   File: Router  (no auto-title, server/router-mixin.js)
-   File: Startup  (no auto-title, server/startup.js)
-   File: View  (no auto-title, server/view-mixin.js)
+   File: APIAdapter  (no auto-title, lib/server/apiadapter-mixin.js)
+   File: Router  (no auto-title, lib/server/router-mixin.js)
+   File: Startup  (no auto-title, lib/server/startup.js)
+   File: View  (no auto-title, lib/server/view-mixin.js)
    }  # Group: Server Mixins
 
 Group: Index  {

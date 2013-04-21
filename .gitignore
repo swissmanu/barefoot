@@ -2,3 +2,4 @@
 node_modules/
 .naturaldocs/Data/
 docs/
+lib-cov/

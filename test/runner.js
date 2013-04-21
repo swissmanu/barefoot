@@ -1,16 +1,33 @@
-var chai = require('chai');
+var chai = require('chai')
+	, barefootPath;
 chai.should();
 
 
-global.requireModule = function(module) {
-	var moduleRoot = '../';
+if(process.env.BAREFOOT_COVERAGE) {
+	barefootPath = '../lib-cov';
+} else {
+	barefootPath = '../lib';
+}
+global.barefootPath = barefootPath;
 
-	if(process.env.BAREFOOT_COVERAGE) {
-		moduleRoot = '/tmp/barefoot-src-cov/';
-	}
+/** Variable: Barefoot
+ * Use this global variable to test anything public of barefoot.
+ */
+global.Barefoot = require(barefootPath);
 
-	if(module.substr(0,2) === './') {
-		module = moduleRoot + module.substr(2);
-	}
-	return require(module);
+/** Function: requireLibFile
+ * Small helper function while running the tests which loads a particular module
+ * from the barefoot source.
+ *
+ * Use this if you'd like to test a module which is usally not available to the
+ * public.
+ *
+ * Parameters:
+ *     (String) module - The module file you'd like to load.
+ *
+ * Returns:
+ *     (Object) module
+ */
+global.requireLibFile = function(module) {
+	return require(barefootPath + '/' + module);
 }
