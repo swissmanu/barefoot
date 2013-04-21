@@ -53,7 +53,6 @@ File: View  (no auto-title, view.js)
 
 Group: Client Mixins  {
 
-   File: APIAdapter  (no auto-title, client/apiadapter-mixin.js)
    File: Router  (no auto-title, client/router-mixin.js)
    File: Startup  (no auto-title, client/startup.js)
    File: View  (no auto-title, client/view-mixin.js)
@@ -71,9 +70,9 @@ Group: Index  {
 
    Index: Everything
    Class Index: Classes
+   Error Index: Errors
    Function Index: Functions
    Mixin Index: Mixins
    Private Function Index: Private Functions
-   Error Index: Errors
    }  # Group: Index
 
