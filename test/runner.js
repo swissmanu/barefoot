@@ -10,10 +10,17 @@ if(process.env.BAREFOOT_COVERAGE) {
 }
 global.barefootPath = barefootPath;
 
-/** Variable: Barefoot
- * Use this global variable to test anything public of barefoot.
+/** Variable: BarefootServer
+ * Use this global variable to test anything server related of barefoot.
  */
-global.Barefoot = require(barefootPath);
+global.BarefootServer = require(barefootPath)({ environment: 'server' });
+global.Barefoot = BarefootServer;
+
+/** Variable: BarefootClient
+ * Use this global variable to test anything client related of barefoot.
+ */
+global.BarefootClient = require(barefootPath)({ environment: 'client' });
+
 
 /** Function: requireLibFile
  * Small helper function while running the tests which loads a particular module

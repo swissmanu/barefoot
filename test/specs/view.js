@@ -41,6 +41,9 @@ describe('View', function() {
 			view = new Barefoot.View({ el: 'body' });
 			subview = new Barefoot.View({ el: 'nav' });
 			view.addSubview(subview);
+
+			view.close = function() {};  // Mock
+			subview.close = view.close;  // Mock
 		})
 
 		it('should remove a subview', function() {
