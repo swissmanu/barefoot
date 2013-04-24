@@ -15,7 +15,7 @@ If you implement your views with care, your application will match the [Unobtrus
 * View: *implemented*
 * Model: *implemented*
 * Collection: *implemented*
-* Restore Models after rendering on server
+* Restore Models after rendering on server: *implemented*
 
 ## Documentation
 The latest version of the code documenation is available here:
