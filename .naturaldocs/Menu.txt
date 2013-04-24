@@ -50,6 +50,7 @@ Don't Index: Variables, Files
 File: Barefoot  (lib/index.js)
 File: APIAdapter  (no auto-title, lib/apiadapter.js)
 File: Collection  (no auto-title, lib/collection.js)
+File: DataStore  (lib/datastore.js)
 File: Errors  (no auto-title, lib/errors.js)
 File: Model  (no auto-title, lib/model.js)
 File: Router  (no auto-title, lib/router.js)
