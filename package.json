@@ -16,6 +16,7 @@
 		"backbone": "~1.0.0"
 		, "underscore": "~1.4.4"
 		, "cheerio": "git://github.com/swissmanu/cheerio.git"
+		, "browserify-middleware": "~1.6.0"
 	}
 	, "devDependencies": {
 		"mocha": "~1.8.2"
