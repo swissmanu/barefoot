@@ -10,6 +10,11 @@ if(process.env.BAREFOOT_COVERAGE) {
 }
 global.barefootPath = barefootPath;
 
+/** Variable: global.document
+ * Dirty fix to load cookie-component NPM module.
+ */
+global.document = {};
+
 /** Variable: BarefootServer
  * Use this global variable to test anything server related of barefoot.
  */
