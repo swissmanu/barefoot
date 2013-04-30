@@ -49,6 +49,7 @@ Don't Index: Variables, Files
 
 File: Barefoot  (lib/index.js)
 File: APIAdapter  (no auto-title, lib/apiadapter.js)
+File: CookieAdapter  (no auto-title, lib/cookieadapter.js)
 File: Collection  (no auto-title, lib/collection.js)
 File: DataStore  (no auto-title, lib/datastore.js)
 File: Errors  (no auto-title, lib/errors.js)
@@ -59,18 +60,20 @@ File: View  (no auto-title, lib/view.js)
 
 Group: Client Mixins  {
 
+   File: CookieAdapter  (no auto-title, lib/client/cookieadapter-mixin.js)
    File: DataStore  (no auto-title, lib/client/datastore-mixin.js)
    File: Router  (no auto-title, lib/client/router-mixin.js)
-   File: Startup  (no auto-title, lib/client/startup.js)
+   File: Start  (no auto-title, lib/client/start.js)
    File: View  (no auto-title, lib/client/view-mixin.js)
    }  # Group: Client Mixins
 
 Group: Server Mixins  {
 
    File: APIAdapter  (no auto-title, lib/server/apiadapter-mixin.js)
+   File: CookieAdapter  (no auto-title, lib/server/cookieadapter-mixin.js)
    File: DataStore  (no auto-title, lib/server/datastore-mixin.js)
    File: Router  (no auto-title, lib/server/router-mixin.js)
-   File: Startup  (no auto-title, lib/server/startup.js)
+   File: Start  (no auto-title, lib/server/start.js)
    File: View  (no auto-title, lib/server/view-mixin.js)
    }  # Group: Server Mixins
 
