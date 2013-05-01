@@ -74,12 +74,6 @@ describe('View', function() {
 			view.render();
 		})
 
-		it('should throw an error if renderView is not implemented', function() {
-			(function() {
-				view.render();
-			}).should.throw();
-		})
-
 		it('should call renderSubviews', function(done) {
 			view.renderView = function() {};
 			view.renderSubviews = done;
