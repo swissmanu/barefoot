@@ -69,6 +69,11 @@ describe('View', function() {
 			view = new Barefoot.View({ el: 'body' });
 		})
 
+		it('should call beforeRender', function(done) {
+			view.beforeRender = done;
+			view.render();
+		})
+
 		it('should call renderView', function(done) {
 			view.renderView = done;
 			view.render();
@@ -79,6 +84,7 @@ describe('View', function() {
 			view.renderSubviews = done;
 			view.render();
 		})
+
 	})
 
 	describe('renderSubviews', function() {
