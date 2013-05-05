@@ -79,6 +79,11 @@ describe('View', function() {
 			view.render();
 		})
 
+		it('should call afterRender', function(done) {
+			view.afterRender = done;
+			view.render();
+		})
+
 		it('should call renderSubviews', function(done) {
 			view.renderView = function() {};
 			view.renderSubviews = done;
