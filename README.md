@@ -10,12 +10,10 @@ If you implement your views with care, your application will match the [Unobtrus
 [![Build Status](https://travis-ci.org/swissmanu/barefoot.png?branch=master)](https://travis-ci.org/swissmanu/barefoot) [![Coverage Status](https://coveralls.io/repos/swissmanu/barefoot/badge.png?branch=master)](https://coveralls.io/r/swissmanu/barefoot)
 
 
-## Progress
-* Router / History: *implemented*
-* View: *implemented*
-* Model: *implemented*
-* Collection: *implemented*
-* Restore Models after rendering on server: *implemented*
+
+## Installation
+
+	npm install node-barefoot
 
 ## Documentation
 The latest version of the code documenation is available here:

@@ -3,3 +3,4 @@ node_modules/
 .naturaldocs/Data/
 docs/
 lib-cov/
+npm-debug.log
