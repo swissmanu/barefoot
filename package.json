@@ -1,6 +1,7 @@
 {
 	"name": "Barefoot"
 	, "version": "0.0.1"
+	, "description": "Barefoot makes code sharing between browser and server reality. Write your application once and run it on both ends of the wire."
 	, "private": true
 	, "keywords": [
 		"backbone"
