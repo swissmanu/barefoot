@@ -21,4 +21,4 @@ The latest version of the code documenation is available here:
 
 To generate a set of documentation locally, make sure you have [NaturalDocs](http://www.naturaldocs.org/) installed on your system. To build the documentation into the `docs` subdirectory, simply run `make docs` on your command line.
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/swissmanu/barefoot/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/swissmanu/barefoot/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f87c96d81337e0f3f6a255aedc521c76 "githalytics.com")](http://githalytics.com/swissmanu/barefoot)
