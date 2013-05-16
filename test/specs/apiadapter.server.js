@@ -7,7 +7,7 @@ describe('APIAdapter.Server', function() {
 			, postRoute = '/testPost';
 
 		before(function() {
-			app = require('../fixtures/expressJsMock');
+			app = require('../mocks/expressjs/app');
 
 			apiAdapter = new Barefoot.APIAdapter({
 				app: app

@@ -1,9 +1,7 @@
 describe('Start.Server', function() {
 	var should = require('chai').should()
-		, RouterMock = function(){ return { start: function(){} }}
-		, appMock = {
-			get: function() {}
-		};
+		, appMock = require('../mocks/expressjs/app')
+		, RouterMock = function(){ return { start: function(){} }};
 
 	it('should throw an error if no express.js app is passed with startOptions', function() {
 		(function() {
@@ -19,7 +17,7 @@ describe('Start.Server', function() {
 	it('should call the setupMiddlewares function if passed', function(done) {
 		var startOptions = {
 				app: appMock
-				, mainJavaScriptFile: { file: '', route: '' }
+				, mainJavaScriptFile: { mainFile: '', url: '' }
 				, setupMiddlewares: function() { done(); }
 			};
 		Barefoot.start(RouterMock, startOptions);
