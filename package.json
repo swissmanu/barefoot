@@ -19,6 +19,7 @@
 		, "browserify-middleware": "~1.6.0"
 		, "cookie-component": "~0.1.5"
 		, "methods": "~0.0.1"
+		, "winston": "~0.7.1"
 	}
 	, "devDependencies": {
 		"mocha": "~1.8.2"
