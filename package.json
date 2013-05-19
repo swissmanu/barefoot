@@ -1,6 +1,6 @@
 {
 	"name": "node-barefoot"
-	, "version": "0.0.4"
+	, "version": "0.0.5"
 	, "description": "Barefoot makes code sharing between browser and server reality. Write your application once and run it on both ends of the wire."
 	, "keywords": [
 		"backbone"
