@@ -3,15 +3,18 @@ describe('APIAdapter.Server', function() {
 	describe('dispatchLocalApiCall', function() {
 		var apiAdapter
 			, app
+			, req
 			, getRoute = '/testGet'
 			, postRoute = '/testPost';
 
 		before(function() {
 			app = require('../mocks/expressjs/app');
+			req = require('../mocks/expressjs/req');
 
 			apiAdapter = new Barefoot.APIAdapter({
 				app: app
 			});
+			apiAdapter.req = req;
 		})
 
 		it('should not fail if the options argument is omited', function() {
@@ -57,7 +60,40 @@ describe('APIAdapter.Server', function() {
 
 			apiAdapter.post(postRoute, handler);
 			apiAdapter.dispatchLocalApiCall('post', postRoute, expectedData);
-		})		
+		})
+
+		it('should execute a single callback', function(done) {
+			apiAdapter.get(getRoute, function(success) { success(); });
+			apiAdapter.dispatchLocalApiCall('get', getRoute, {}, {
+				success: done
+			});
+		})
+
+		it('should execute all callbacks if more than one is stacked upon a route', function(done) {
+			var callbacks = [
+				function callback1(success) { success(); }
+				, function callback2(success) { success(); }
+				, function callback3(success) { success(); }
+			];
+
+			apiAdapter.get(getRoute, callbacks);
+			apiAdapter.dispatchLocalApiCall('get', getRoute, {}, {
+				success: done
+			});
+		})
+
+		it('should stop execution of stacked callbacks as soon as error callback is called', function(done) {
+			var callbacks = [
+				function callback1(success) { success(); }
+				, function callback2(success) { error(); }
+			];
+
+			apiAdapter.get(getRoute, callbacks);
+			apiAdapter.dispatchLocalApiCall('get', getRoute, {}, {
+				success: function() {}
+				, error: function() { done(); }
+			});
+		})
 	})
 	
 })
