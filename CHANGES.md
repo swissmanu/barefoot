@@ -1,4 +1,8 @@
 # Changes
+## 0.0.7
+* Introduced promises for rendering `Views` using [Q](https://github.com/kriskowal/q)
+	* The `beforeRender` and `afterRender` hook has a `resolve` and `reject` argument now. These make it possible to wait for asynchronous function calls. Perfect for populating models with data from the `APIAdapter` before proceed with the actual rendering.
+
 ## 0.0.6
 * `APIAdapter.Server` uses [winston](https://github.com/flatiron/winston) for logging errors now
 * `APIAdapter.Server` does not crash anymore if an `error` callback does not supply an error object as argument

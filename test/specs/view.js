@@ -70,7 +70,10 @@ describe('View', function() {
 		})
 
 		it('should call beforeRender', function(done) {
-			view.beforeRender = done;
+			view.beforeRender = function(resolve) {
+				resolve();
+				done();
+			};
 			view.render();
 		})
 
@@ -80,7 +83,10 @@ describe('View', function() {
 		})
 
 		it('should call afterRender', function(done) {
-			view.afterRender = done;
+			view.afterRender = function(resolve) {
+				resolve();
+				done();
+			}
 			view.render();
 		})
 
@@ -99,7 +105,7 @@ describe('View', function() {
 		beforeEach(function() {
 			view = new Barefoot.View({ el: 'body' });
 			subview = new Barefoot.View({ el: 'nav' });
-			
+
 			view.$ = function() {};
 			subview.renderView = function() {};
 			view.addSubview(subview);
@@ -115,5 +121,5 @@ describe('View', function() {
 			view.renderSubviews();
 		})
 	})
-	
+
 })
