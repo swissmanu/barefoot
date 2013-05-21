@@ -20,6 +20,7 @@
 		, "cookie-component": "~0.1.5"
 		, "methods": "~0.0.1"
 		, "winston": "~0.7.1"
+		, "q": "~0.9.3"
 	}
 	, "devDependencies": {
 		"mocha": "~1.8.2"
