@@ -21,6 +21,7 @@
 		, "methods": "~0.0.1"
 		, "winston": "~0.7.1"
 		, "q": "~0.9.3"
+		, "debug": "~0.7.2"
 	}
 	, "devDependencies": {
 		"mocha": "~1.8.2"
@@ -28,7 +29,6 @@
 		, "jshint": "~1.1.0"
 		, "mocha-lcov-reporter": "~0.0.1"
 		, "coveralls": "~2.0.7"
-		, "debug": "~0.7.2"
 	}
 	, "engines": {
 		"node": ">=0.8"
