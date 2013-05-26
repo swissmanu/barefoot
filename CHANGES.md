@@ -1,4 +1,7 @@
 # Changes
+## 0.0.8
+* Introduction of [Debug](https://github.com/visionmedia/debug) for code flow analysis. Thx @mweibel :)
+
 ## 0.0.7
 * Introduced promises for rendering `Views` using [Q](https://github.com/kriskowal/q)
 	* The `beforeRender` and `afterRender` hook has a `resolve` and `reject` argument now. These make it possible to wait for asynchronous function calls. Perfect for populating models with data from the `APIAdapter` before proceed with the actual rendering.
