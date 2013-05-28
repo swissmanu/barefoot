@@ -1,4 +1,4 @@
-![barefoot](https://github.com/swissmanu/barefoot/blob/master/barefoot.png)
+![barefoot](https://raw.github.com/swissmanu/barefoot/master/barefoot.png)
 
 Barefoot makes code sharing between browser and server reality. Write your application once and run it on both ends of the wire.
 
