@@ -1,4 +1,7 @@
 # Changes
+## 0.0.9
+* `APIAdapter.Server` provides the `del` alias for `delete` now to ensure compatibility with JavaScripts reserved words.
+
 ## 0.0.8
 * Introduction of [Debug](https://github.com/visionmedia/debug) for code flow analysis. Thx @mweibel :)
 
