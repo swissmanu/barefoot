@@ -1,6 +1,6 @@
 {
 	"name": "node-barefoot"
-	, "version": "0.0.8"
+	, "version": "0.0.9"
 	, "description": "Barefoot makes code sharing between browser and server reality. Write your application once and run it on both ends of the wire."
 	, "keywords": [
 		"backbone"
@@ -34,6 +34,12 @@
 		"node": ">=0.8"
 	}
 	, "author": "Manuel Alabor <manuel@alabor.me>"
+	, "contributors": [
+		{
+			"name": "Michael Weibel"
+			, "email": "michael.weibel@gmail.com"
+		}
+	]
 	, "repository": "https://github.com/swissmanu/barefoot"
 	, "license": "MIT"
 }
