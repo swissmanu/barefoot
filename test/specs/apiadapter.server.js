@@ -17,6 +17,10 @@ describe('APIAdapter.Server', function() {
 			apiAdapter.req = req;
 		})
 
+		it('should have del as an alias for delete', function() {
+			apiAdapter.del.should.be.equal(apiAdapter['delete']);
+		})
+
 		it('should not fail if the options argument is omited', function() {
 			apiAdapter.get(getRoute, function(success) { success(); });
 
@@ -95,5 +99,5 @@ describe('APIAdapter.Server', function() {
 			});
 		})
 	})
-	
+
 })
