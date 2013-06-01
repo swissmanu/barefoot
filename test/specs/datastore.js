@@ -1,14 +1,7 @@
 describe('DataStore', function() {
 	var dataStore
 		, Model = Barefoot.Model.extend()
-		, Collection = Barefoot.Collection.extend()
-		, apple = new Model({ name: 'Apple' })
-		, vegs = new Collection([
-			new Model({ name: 'Tomato' })
-			, new Model({ name: 'Salad' })
-		])
-		, jsonRepresentation = '{"apple":{"dataStoreModelIdentifier":"model","data":{"name":"Apple"}},"vegs":{"dataStoreModelIdentifier":"collection","data":[{"name":"Tomato"},{"name":"Salad"}]}}'
-		, objectRepresentation = JSON.parse(jsonRepresentation);
+		, Collection = Barefoot.Collection.extend();
 
 
 	describe('registerModel', function() {
@@ -19,19 +12,41 @@ describe('DataStore', function() {
 			dataStore = new Barefoot.DataStore();
 
 			dataStore.registerModel(identifier, Model);
-			dataStore.getRegisteredModels().should.be.eql(expected);
+			dataStore.getRegisteredModelsAndCollections().should.be.eql(expected);
 		})
 	})
 
-	describe('getRegisteredModels', function() {
-		it('should return all currently registered models', function() {
-			var identifier = 'model'
+	describe('registerCollection', function() {
+		it('should register a collection with given key', function() {
+			var identifier = 'collection'
 				, expected = {};
-			expected[identifier] = Model;
+			expected[identifier] = {
+				collectionClass: Collection
+				, modelClass: Model
+			};
 			dataStore = new Barefoot.DataStore();
 
-			dataStore.registerModel(identifier, Model);
-			dataStore.getRegisteredModels().should.be.eql(expected);
+			dataStore.registerCollection(identifier, Collection, Model);
+			dataStore.getRegisteredModelsAndCollections().should.be.eql(expected);
+		})
+	})
+
+	describe('getRegisteredModelsAndCollections', function() {
+		it('should return all currently registered models', function() {
+			var modelIdentifier = 'model'
+				, collectionIdentifier = 'collection'
+				, expected = {};
+
+			expected[modelIdentifier] = Model;
+			expected[collectionIdentifier] = {
+				collectionClass: Collection
+				, modelClass: Model
+			};
+			dataStore = new Barefoot.DataStore();
+
+			dataStore.registerModel(modelIdentifier, Model);
+			dataStore.registerCollection(collectionIdentifier, Collection, Model);
+			dataStore.getRegisteredModelsAndCollections().should.be.eql(expected);
 		})
 	})
 })

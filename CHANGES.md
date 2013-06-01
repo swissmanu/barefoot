@@ -1,4 +1,7 @@
 # Changes
+## 0.0.10
+* Bug fixed: `DataStore` was not deserializing collections properly.
+
 ## 0.0.9
 * `APIAdapter.Server` provides the `del` alias for `delete` now to ensure compatibility with JavaScripts reserved words.
 

@@ -17,10 +17,10 @@ describe('DataStore.Client', function() {
 
 		it('should restore the stores state properly', function() {
 			dataStore.registerModel('model', Model);
-			dataStore.registerCollection('collection', Collection);
-			
+			dataStore.registerCollection('collection', Collection, Model);
+
 			dataStore.parse(objectRepresentation);
-			
+
 			dataStore.get('apple').constructor.should.be.equal(Model);
 			dataStore.get('apple').attributes.should.be.eql(apple.attributes);
 			dataStore.get('vegs').constructor.should.be.equal(Collection);

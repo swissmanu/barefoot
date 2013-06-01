@@ -9,7 +9,7 @@ describe('DataStore.Server', function() {
 		])
 		, jsonRepresentation = '{"apple":{"dataStoreModelIdentifier":"model","data":{"name":"Apple"}},"vegs":{"dataStoreModelIdentifier":"collection","data":[{"name":"Tomato"},{"name":"Salad"}]}}'
 		, objectRepresentation = JSON.parse(jsonRepresentation);
-	
+
 	describe('toJSON', function() {
 		beforeEach(function() {
 			dataStore = new Barefoot.DataStore();
@@ -19,10 +19,9 @@ describe('DataStore.Server', function() {
 
 		it('should return a proper JSON representation of the store', function() {
 			dataStore.registerModel('model', Model);
-			dataStore.registerCollection('collection', Collection);
+			dataStore.registerCollection('collection', Collection, Model);
 
 			var actualJSON = JSON.stringify(dataStore.toJSON());
-
 			actualJSON.should.be.equal(jsonRepresentation);
 		})
 
