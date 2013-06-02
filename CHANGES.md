@@ -1,4 +1,7 @@
 # Changes
+## 0.0.11
+* Don't start Backbone.History for browsers not supporting JavaScript History and/or `pushState`
+
 ## 0.0.10
 * Bug fixed: `DataStore` was not deserializing collections properly.
 
