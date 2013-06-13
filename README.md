@@ -23,3 +23,6 @@ The latest version of the code documenation is available here:
 To generate a set of documentation locally, make sure you have [NaturalDocs](http://www.naturaldocs.org/) installed on your system. To build the documentation into the `docs` subdirectory, simply run `make docs` on your command line.
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f87c96d81337e0f3f6a255aedc521c76 "githalytics.com")](http://githalytics.com/swissmanu/barefoot)
+
+## History of barefoot
+The idea behind and the code of barefoot was initially developed as part of a ![bachelors thesis](http://hsr-ba-ajw-2013.github.io/BA/) by @mekanics, @mweibel and @swissmanu in spring 2013. We decided to decouple its logic into a distinct library early and made it available to the public here.
